@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="main-page">
+      {% for post in post_list %}
+        <h4 style="margin-top: 20px;">
+          <a href="{{ post.get_absolute_url }}" class="text-dark">
+            {{post.title}}{{ post.excerpt }}
+          </a>
+        </h4>
+        <div style="font-size: 12px;margin-top: -10px;">
+          <span>
+            <svg t="1637953531516" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2447" width="15" height="15"><path d="M256 734.101333v64H170.666667v-64h85.333333z m597.333333 0v64H298.666667v-64h554.666666zM256 493.184v64H170.666667v-64h85.333333z m597.333333 0v64H298.666667v-64h554.666666zM256 252.245333v64H170.666667v-64h85.333333z m597.333333 0v64H298.666667v-64h554.666666z" p-id="2448" fill="#8a8a8a"></path></svg>
+            <a href="{% url 'blog:category_match' post.category.pk %}" class="text-dark">
+              {{ post.category.name }}
+            </a>
+          </span>
+          <span>
+            &nbsp;&nbsp;
+            <time datetime="{{ post.created_time }}">
+              {{ post.created_time }}
+            </time>
+            &nbsp;&nbsp;
+          </span>
+          <span>
+            <svg t="1637953702567" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3401" width="15" height="15"><path d="M483.2 790.3L861.4 412c1.7-1.7 2.5-4 2.3-6.3l-25.5-301.4c-0.7-7.8-6.8-13.9-14.6-14.6L522.2 64.3c-2.3-0.2-4.7 0.6-6.3 2.3L137.7 444.8c-3.1 3.1-3.1 8.2 0 11.3l334.2 334.2c3.1 3.2 8.2 3.2 11.3 0z m62.6-651.7l224.6 19 19 224.6L477.5 694 233.9 450.5l311.9-311.9z" p-id="3402" fill="#707070"></path><path d="M605.958852 324.826232a48 48 0 1 0 67.881066-67.883435 48 48 0 1 0-67.881066 67.883435Z" p-id="3403" fill="#707070"></path><path d="M889.7 539.8l-39.6-39.5c-3.1-3.1-8.2-3.1-11.3 0l-362 361.3-237.6-237c-3.1-3.1-8.2-3.1-11.3 0l-39.6 39.5c-3.1 3.1-3.1 8.2 0 11.3l243.2 242.8 39.6 39.5c3.1 3.1 8.2 3.1 11.3 0l407.3-406.6c3.1-3.1 3.1-8.2 0-11.3z" p-id="3404" fill="#707070"></path></svg>
+              {% for i in post.tags.all %}
+                <a href="{% url 'blog:tag_match' i.pk %}" class="text-dark">
+                  {{ i.name }}
+                </a>
+              {% endfor %}
+              &nbsp;
+          </span>
+          <span>
+            <svg t="1638005821890" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3286" width="15" height="15"><path d="M956 686.5l-0.1-0.1-0.1-0.1C911.7 593 843.4 545 752.5 545s-159.2 48.1-203.4 141.3v0.1c-5.4 11.5-5.4 24.9 0 36.4C593.3 816 661.6 864 752.5 864s159.2-48.1 203.4-141.3c5.4-11.5 5.4-24.8 0.1-36.2zM752.5 800c-62.1 0-107.4-30-141.1-95.5C645 639 690.4 609 752.5 609c62.1 0 107.4 30 141.1 95.5C860 770 814.6 800 752.5 800z" p-id="3287" fill="#707070"></path><path d="M753 705m-56 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0Z" p-id="3288" fill="#707070"></path><path d="M136 232h704v253h72V192c0-17.7-14.3-32-32-32H96c-17.7 0-32 14.3-32 32v520c0 17.7 14.3 32 32 32h352v-72H136V232z" p-id="3289" fill="#707070"></path><path d="M724.9 338.1l-36.8-36.8c-3.1-3.1-8.2-3.1-11.3 0L493 485.3l-86.1-86.2c-3.1-3.1-8.2-3.1-11.3 0L251.3 543.4c-3.1 3.1-3.1 8.2 0 11.3l36.8 36.8c3.1 3.1 8.2 3.1 11.3 0l101.8-101.8 86.1 86.2c3.1 3.1 8.2 3.1 11.3 0l226.3-226.5c3.2-3.1 3.2-8.2 0-11.3z" p-id="3290" fill="#707070"></path></svg>
+              {{ post.views }}
+          </span>
+        </div>
+      {% empty %}
+        <h4>
+          暂时还没有发布的文章！
+        </h4>
+      {% endfor %}
+    </div>
+    {% if is_paginated %}
+      {{ page_obj.render }}
+    {% endif %}
+{% endblock main %}
+

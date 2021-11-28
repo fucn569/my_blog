@@ -1,0 +1,139 @@
+{% load static %}
+<!doctype html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/detail.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/hover.css' %}">
+    <title>基于django的前端天气预报网站</title>
+</head>
+
+<body>
+    <!-- 容器 -->
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md-8 offset-md-1">
+
+                <!-- 导出样式标签/类 -->
+                <div class='typora-export os-windows typora-export-show-outline typora-export-no-collapse-outline'>
+
+                    <!-- 文章重用部分 -->
+                    {{ post.body|safe }}
+
+                </div>
+
+            </div>
+
+            <!-- 右侧边栏 -->
+            <div class="col-md-1 d-xl-block d-none">
+                <div class="row">
+                    <div style="position: fixed;margin-top: 130px;padding-left:100px;">
+                        <h3>{{ post.title }}</h3>
+                        <div style="font-size: 15px;margin-top: -10px;">
+                            <span>{{ post.created_time }}</span>&nbsp;&nbsp;
+                            <span>
+                                <svg t="1637953531516" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2447" width="20" height="20"><path d="M256 734.101333v64H170.666667v-64h85.333333z m597.333333 0v64H298.666667v-64h554.666666zM256 493.184v64H170.666667v-64h85.333333z m597.333333 0v64H298.666667v-64h554.666666zM256 252.245333v64H170.666667v-64h85.333333z m597.333333 0v64H298.666667v-64h554.666666z" p-id="2448" fill="#8a8a8a"></path></svg>
+                                <a href="{% url 'blog:category_match' post.category.pk %}" class="text-dark">
+                                    {{ post.category.name }}
+                                </a>
+                            </span>
+                        </div>
+                        <div style="font-size: 15px;">
+                            <span>
+                                <svg t="1638005821890" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3286" width="15" height="15"><path d="M956 686.5l-0.1-0.1-0.1-0.1C911.7 593 843.4 545 752.5 545s-159.2 48.1-203.4 141.3v0.1c-5.4 11.5-5.4 24.9 0 36.4C593.3 816 661.6 864 752.5 864s159.2-48.1 203.4-141.3c5.4-11.5 5.4-24.8 0.1-36.2zM752.5 800c-62.1 0-107.4-30-141.1-95.5C645 639 690.4 609 752.5 609c62.1 0 107.4 30 141.1 95.5C860 770 814.6 800 752.5 800z" p-id="3287" fill="#707070"></path><path d="M753 705m-56 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0Z" p-id="3288" fill="#707070"></path><path d="M136 232h704v253h72V192c0-17.7-14.3-32-32-32H96c-17.7 0-32 14.3-32 32v520c0 17.7 14.3 32 32 32h352v-72H136V232z" p-id="3289" fill="#707070"></path><path d="M724.9 338.1l-36.8-36.8c-3.1-3.1-8.2-3.1-11.3 0L493 485.3l-86.1-86.2c-3.1-3.1-8.2-3.1-11.3 0L251.3 543.4c-3.1 3.1-3.1 8.2 0 11.3l36.8 36.8c3.1 3.1 8.2 3.1 11.3 0l101.8-101.8 86.1 86.2c3.1 3.1 8.2 3.1 11.3 0l226.3-226.5c3.2-3.1 3.2-8.2 0-11.3z" p-id="3290" fill="#707070"></path></svg>
+                                {{ post.views }}
+                            </span>
+                            &nbsp;&nbsp;
+                            <span>
+                                <svg t="1637953702567" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3401" width="15" height="15"><path d="M483.2 790.3L861.4 412c1.7-1.7 2.5-4 2.3-6.3l-25.5-301.4c-0.7-7.8-6.8-13.9-14.6-14.6L522.2 64.3c-2.3-0.2-4.7 0.6-6.3 2.3L137.7 444.8c-3.1 3.1-3.1 8.2 0 11.3l334.2 334.2c3.1 3.2 8.2 3.2 11.3 0z m62.6-651.7l224.6 19 19 224.6L477.5 694 233.9 450.5l311.9-311.9z" p-id="3402" fill="#707070"></path><path d="M605.958852 324.826232a48 48 0 1 0 67.881066-67.883435 48 48 0 1 0-67.881066 67.883435Z" p-id="3403" fill="#707070"></path><path d="M889.7 539.8l-39.6-39.5c-3.1-3.1-8.2-3.1-11.3 0l-362 361.3-237.6-237c-3.1-3.1-8.2-3.1-11.3 0l-39.6 39.5c-3.1 3.1-3.1 8.2 0 11.3l243.2 242.8 39.6 39.5c3.1 3.1 8.2 3.1 11.3 0l407.3-406.6c3.1-3.1 3.1-8.2 0-11.3z" p-id="3404" fill="#707070"></path></svg>
+                                    {% for i in post.tags.all %}
+                                    <a href="{% url 'blog:tag_match' i.pk %}" class="text-dark">
+                                        {{ i.name }}
+                                    </a>
+                                    &nbsp;
+                                    {% endfor %}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="position: fixed;height: 100%;" class="media">
+                    <ul class="nav flex-column align-self-center mx-auto" style="padding-left: 85px;">
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/" title="主页" id="svg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+                                    <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <br>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/category" title="分类" id="svg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <br>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/tag" title="标签" id="svg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-tag" viewBox="0 0 16 16">
+                                    <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z"/>
+                                    <path d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <br>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/about" title="关于我" id="svg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-file-earmark-person" viewBox="0 0 16 16">
+                                    <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5v2z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <br>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link text-secondary" href="mailto:diu_h@qq.com?subject=邮件主题&body=邮件内容" title="发送邮件给我" id="svg">
+                                <svg class="bi bi-envelope" width="40" height="40" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M14 3H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z"/>
+                                    <path d="M.05 3.555C.017 3.698 0 3.847 0 4v.697l5.803 3.546L0 11.801V12c0 .306.069.596.192.856l6.57-4.027L8 9.586l1.239-.757 6.57 4.027c.122-.26.191-.55.191-.856v-.2l-5.803-3.557L16 4.697V4c0-.153-.017-.302-.05-.445L8 8.414.05 3.555z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <br> -->
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="#" title="回到顶部" id="svg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="col-md-9 offset-md-2">
+            <blockquote><p class="h3">写作不易，转载请注明链接</p></blockquote>
+            <h2>
+                评论区施工中🚧
+            </h2>
+        </div>
+    </div>
+
+    <script src="{% static 'blog/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+    <!-- 文章监听 -->
+    <script src="{% static 'blog/js/listener.js' %}"></script>
+</body>
+</html>
+

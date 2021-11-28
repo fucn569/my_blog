@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="main-page">
+
+  <div class="card-columns">
+    {% for link in link_list %}
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title" style="margin-top: 10px;">{{ link.author }}</h4>
+          <p class="card-text">{{ link.intro }}</p>
+          <hr>
+          <a href="{{ link.link }}" class="btn btn-outline-secondary btn-block">🔗</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+</div>
+{% endblock main %}
+

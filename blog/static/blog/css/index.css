@@ -1,0 +1,133 @@
+:root {
+  --title-color: #444444;
+  --text-color: #444444;
+  --light-text-color: #666666;
+  --link-color: #2aa899;
+  --code-color: #745fb5;
+
+  --shadow-color: #eee;
+  --purple-light: rgba(116, 95, 181, 0.2);
+  --border: #e7e7e7;
+  --shadow: 3px 3px 10px var(--shadow-color);
+
+  --side-bar-bg-color: #fafafa;
+  --control-text-color: var(var(--light-text-color));
+  --active-file-text-color: var(--title-color);
+  --active-file-bg-color: var(--shadow-color);
+  --item-hover-bg-color: var(--shadow-color);
+  --active-file-border-color: var(var(--title-color));
+
+  --base-font: "Helvetica Neue", "Noto Sans", -apple-system, Ubuntu,
+    "Microsoft YaHei", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans",
+    "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Source Han Sans SC",
+    "Source Han Sans CN", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti",
+    SimHei, "WenQuanYi Zen Hei Sharp", "Source Sans Pro", sans-serif;
+  --title-font: "EB Garamond", Georgia, "Noto Serif", "Noto Serif CJK SC",
+    "Nimbus Roman No9 L", "Songti SC", "Source Han Serif SC",
+    "Source Han Serif CN", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun,
+    SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN",
+    "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU,
+    "Ubuntu", "Source Sans Pro", serif;
+  --monospace: "JetBrains Mono", "Fira Code", "Cascadia Code", "Sarasa Term SC",
+    Monaco, "Deja Vu Sans Mono", Consolas, "Lucida Console", "Andale Mono",
+    "Roboto Mono", Courier, Monospace !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  line-height: 1.3;
+  cursor: text;
+  color: var(--title-color);
+  font-family: var(--title-font);
+}
+
+h1 {
+  font-weight: bold;
+  text-align: center;
+  font-size: 2.25em;
+  margin-bottom: 2rem;
+}
+
+h1:after {
+  content: "";
+  display: block;
+  margin: 0.2em auto 0;
+  width: 6rem;
+  height: 2px;
+  border-bottom: 2px solid var(--title-color);
+}
+
+h2 {
+  padding-left: 0.4em;
+  font-size: 1.75em;
+  border-left: 0.4em solid var(--title-color);
+  border-bottom: 1px solid var(--title-color);
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 1.2em;
+}
+
+h6 {
+  font-size: 1.1em;
+}
+
+#svg:hover {
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+  margin: 0.8em 0;
+}
+
+li>ol,
+li>ul {
+  margin: 0 0;
+}
+
+ul,
+ol {
+  padding-left: 2rem;
+}
+
+ul:first-child,
+ol:first-child {
+  margin-top: 0;
+}
+
+ul:last-child,
+ol:last-child {
+  margin-bottom: 0;
+}
+
+ol li,
+ul li {
+  padding-left: 0.1rem;
+}
+

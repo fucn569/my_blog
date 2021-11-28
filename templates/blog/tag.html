@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="main-page">
+    <div class="col-md-8 offset-md-2">
+      <div style="line-height: 60px;">
+      {% for tag in tag_list %}
+        {% for key,value in tag.items %}
+            <a href="/tags/{{ key.pk }}/" style="font-size: {{ value }}px; padding-right: 20px;" class="text-dark">
+              {{ key.name }}
+            </a>
+        {% endfor %}
+      {% endfor %}
+      </div>
+    </div>
+</div>
+{% endblock main %}
+
