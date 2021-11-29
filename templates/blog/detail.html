@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'blog/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/css/detail.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/css/hover.css' %}">
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
     <title>基于django的前端天气预报网站</title>
 </head>
 
@@ -124,9 +125,7 @@
     <div class="container">
         <div class="col-md-9 offset-md-2">
             <blockquote><p class="h3">写作不易，转载请注明链接</p></blockquote>
-            <h2>
-                评论区施工中🚧
-            </h2>
+            <div id="container"></div>
         </div>
     </div>
 
@@ -134,6 +133,18 @@
     <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
     <!-- 文章监听 -->
     <script src="{% static 'blog/js/listener.js' %}"></script>
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <script>
+    var gitment = new Gitment({
+        owner: 'fucn569',
+        repo: 'repo_for_gitment',
+        oauth: {
+            client_id: '29cf07c2d642b15fc4af',
+            client_secret: '990e7e9264f4349deb5c92698bf786c64f9a221d',
+        },
+    })
+    gitment.render('container')
+    </script>
 </body>
 </html>
 
