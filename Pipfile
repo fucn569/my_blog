@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 django = "==2.2.3"
-django-pure-pagination = "*"
+django-pure-pagination = "0.3.0"
 
 [dev-packages]
 
