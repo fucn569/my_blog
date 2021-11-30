@@ -1,15 +1,15 @@
 {% load static %}
 <!doctype html>
 <html>
-
+<html lang="zh-CN">
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width initial-scale=1'>
     <link rel="stylesheet" type="text/css" href="{% static 'blog/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/css/detail.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/css/hover.css' %}">
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-    <title>基于django的前端天气预报网站</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <title>{{ post.title }}</title>
 </head>
 
 <body>
@@ -125,7 +125,7 @@
     <div class="container">
         <div class="col-md-9 offset-md-2">
             <blockquote><p class="h3">写作不易，转载请注明链接</p></blockquote>
-            <div id="container"></div>
+            <div id="gitalk-container"></div>
         </div>
     </div>
 
@@ -133,7 +133,7 @@
     <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
     <!-- 文章监听 -->
     <script src="{% static 'blog/js/listener.js' %}"></script>
-    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
     <script>
     var gitment = new Gitment({
         owner: 'fucn569',
@@ -144,6 +144,17 @@
         },
     })
     gitment.render('container')
+    var gitalk = new Gitalk({
+        clientID: '29cf07c2d642b15fc4af',
+        clientSecret: '990e7e9264f4349deb5c92698bf786c64f9a221d',
+        repo: 'repo_for_gitment',
+        owner: 'fucn569',
+        admin: ['fucn569'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
     </script>
 </body>
 </html>
