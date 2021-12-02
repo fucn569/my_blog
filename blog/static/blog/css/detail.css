@@ -154,15 +154,24 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
 .md-fences-advanced:not(.md-focus) { background: inherit; }
 .typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
-.typora-export-sidebar { width: 400px; font-size: 1.0rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-sidebar { font-size: 1.0rem; }
 .typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
 /* .typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; } */
-.typora-export-sidebar .outline-content { position: fixed; top: 100px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+.typora-export-sidebar .outline-content { overflow: hidden auto; width: 300px; }
 @media screen and (max-width: 1920px) {
   .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
 }
-@media screen and (max-width: 1700px) {
+@media screen and (max-width: 1750px) {
   .typora-export-sidebar { display: none; }
+}
+@media screen and (max-width: 1750px) {
+  #siderbar_right_1 { display: none; }
+}
+@media screen and (max-height: 700px) {
+  #siderbar_right_1 { display: none; }
+}
+@media screen and (max-width: 1750px) {
+  #siderbar_right_2 { display: none; }
 }
 .outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
 .outline-content ul { margin-top: 0px; margin-bottom: 0px; }
@@ -356,10 +365,9 @@ body {
 /* 页边距 和 页面大小 */
 #write {
   font-family: var(--base-font);
-  max-width: 930px;
-  margin: 0 auto;
-  padding: 1rem 4rem;
-  padding-bottom: 100px;
+  /* max-width: 930px; */
+  margin: auto;
+  padding: 0;
 }
 
 #write p {

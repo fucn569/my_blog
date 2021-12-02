@@ -32,6 +32,7 @@ class Post(models.Model):
     created_time = models.DateField('创建时间', default=timezone.now)
     modified_time = models.DateTimeField('修改时间')
     excerpt = models.CharField('摘要', max_length=200, blank=True)
+    catalog = models.TextField('目录')
     # 关联数据表
     # 分类一对多，标签、作者多对多
     category = models.ForeignKey(Category,verbose_name='分类',on_delete=models.CASCADE)
