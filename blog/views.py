@@ -7,7 +7,7 @@ class IndexView(PaginationMixin,ListView):
     model = Post
     template_name = 'blog/index.html'
     context_object_name = 'post_list'
-    paginate_by = 18
+    paginate_by = 15
 
 # def index(request):
 #     post_list = Post.objects.all().order_by('-created_time')
