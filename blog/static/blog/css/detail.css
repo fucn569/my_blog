@@ -174,7 +174,7 @@ mark .md-meta { color: rgb(0, 0, 0); }
   #siderbar_right_2 { display: none; }
 }
 @media screen and (max-width: 1720px) {
-  #siderbar_right_2 { padding-left: 35px; }
+  #siderbar_right_2 { padding-left: 15px; }
 }
 @media screen and (max-width: 1720px) {
   #siderbar_left { margin-left: -75px; }
