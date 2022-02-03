@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'blog/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/css/detail.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/css/hover.css' %}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/gitalk.css' %}">
     <link href="{% static 'blog/image/2.png' %}" rel="icon" type="image/x-ico">
     <title>{{ post.title }}</title>
 </head>
@@ -185,7 +185,7 @@
     <!-- 文章监听 -->
     <script src="{% static 'blog/js/listener.js' %}"></script>
     <script src="{% static 'blog/js/index.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <script src="{% static 'blog/js/gitalk.min.js' %}"></script>
     <script>
     var gitalk = new Gitalk({
         clientID: '29cf07c2d642b15fc4af',
